@@ -10,6 +10,7 @@ const SurveyMonkeyAPII = require('survey-monkey');
 var express = require("express");
 var router = express.Router();
 var token = require('../../auth');
+var request = require("request");
 
 //--------------------------------------
 // API Calls
@@ -77,6 +78,30 @@ router.get("/responses", function(req, res) {
       }
     }
   }).catch(err => console.error(err))
+});
+
+
+
+router.get("/test", function(req, res) {
+
+  var options = {
+    method: 'GET',
+    url: 'https://api.surveymonkey.com/v3/surveys/130726645/details',
+    headers:
+    { 'Authorization': 'bearer ' + token.accessToken,
+      'Cache-Control': 'no-cache',
+      'Content-Type': 'application/json'
+    }
+ };
+
+ request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  res.json(body);
+  console.log(body);
+  console.log(response);
+
+  });
 });
 
 module.exports = router;
