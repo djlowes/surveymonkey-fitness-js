@@ -6,7 +6,6 @@ var bcrypt   = require('bcrypt-nodejs');
 const User = new Schema({
   email: String,
   password: { type: String, select: false },
-  username: String,
 });
 
 // User.plugin(passportLocalMongoose);

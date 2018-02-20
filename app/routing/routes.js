@@ -41,26 +41,23 @@ app.get("/login", function(req, res) {
 });
 
 app.get("/home", function(req, res) {
-  console.log(req.user)
-
-  var options = {
-    method: 'POST',
-    url: 'https://api.surveymonkey.com/v3/contact_lists/100858056/contacts',
-    headers:
-    { 'Authorization': 'bearer ' + token.accessToken,
-      'Content-Type': 'application/json'
-    },
-    body: {
-            email: req.user.email
-          },
-    json: true
- };
-
- request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-  console.log(body);
+ //  console.log(req.user)
+ //
+ //  var options = {
+ //    method: 'POST',
+ //    url: 'https://api.surveymonkey.com/v3/contact_lists/100858056/contacts',
+ //    headers:
+ //    { 'Authorization': 'bearer ' + token.accessToken,
+ //      'Content-Type': 'application/json'
+ //    },
+ //    json: true
+ // };
+ //
+ // request(options, function (error, response, body) {
+ //  if (error) throw new Error(error);
+ //  console.log(body);
   res.sendFile(path.join(__dirname, '../public', 'home.html'));
-  });
+ //  });
 });
 
 app.get('/logout', function(req, res) {
@@ -74,6 +71,8 @@ app.post('/register', passport.authenticate('local-signup', {
     failureRedirect : '/', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 }));
+
+
 
 };
 
