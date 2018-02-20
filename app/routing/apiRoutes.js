@@ -151,14 +151,14 @@ router.get("/contact-list", function(req, res) {
     { 'Authorization': 'bearer ' + token.accessToken,
       'Content-Type': 'application/json'
     },
-    body: { name: 'My Contact List' },
+    body: { name: 'API-Presentation' },
     json: true
  };
 
  request(options, function (error, response, body) {
   if (error) throw new Error(error);
   res.send(body);
-  var contactList = body.name //for use later
+  var contactList = body.name //for use later  "id": "100858056"
   console.log(body.name);
   });
 });
