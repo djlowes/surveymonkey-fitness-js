@@ -71,8 +71,7 @@ router.get("/responses", function(req, res) {
         for (let k = 0; k<answ.length; k++) {
           var answe = answ[k].answers;
           for (let l = 0; l<answe.length; l++) {
-            console.log(answe[l])
-
+            answers = answe[l]
           }
         }
       }
@@ -81,7 +80,7 @@ router.get("/responses", function(req, res) {
 });
 
 //--------------------------------------
-// Using HTTP Request Method
+// Using Request Method
 //--------------------------------------
 
 // Returns an expanded survey resource with a pages element containing a list of all page objects, each containing a list of questions objects **-- /surveys/{id}/details --**
@@ -182,15 +181,6 @@ router.get("/contacts", function(req, res) {
   });
 });
 
-
-//
-//
-//
-// DO THIS HERE - https://developer.surveymonkey.com/api/v3/#contact_lists-id-contacts-bulk
-//
-//
-//
-
 // Returns responses from a specific collector **-- collectors/{collector_id}/responses --**
 router.get("/collector-responses", function(req, res) {
 
@@ -229,9 +219,10 @@ router.get("/messages", function(req, res) {
   });
 });
 
-
-
-
+/*
+Creates multiple recipients = /collectors/{id}/messages/{id}/recipients/bulk
+DON'T USE RANDOM CONTACTS ID'S or CONTACT LIST ID's - THEY WILL BE ADDED TO LIST
+*/
 
 
 // Creates multiple recipients to send survey to POST https://api.surveymonkey.com/v3/collectors/{collector_id}/messages/{message_id}/send
@@ -254,8 +245,24 @@ router.get("/send-survey", function(req, res) {
   });
 });
 
+// Returns rollups for all questions in a survey **-- surveys/{id}/rollups --**
+router.get("/rollups", function(req, res) {
 
+  var options = {
+    method: 'GET',
+    url: 'https://api.surveymonkey.com/v3/surveys/130879901/rollups',
+    headers:
+    { 'Authorization': 'bearer ' + token.accessToken,
+      'Content-Type': 'application/json'
+    }
+ };
 
+ request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+  res.send(JSON.parse(body));
+  // message id = 44766060
+  });
+});
 
 
 
