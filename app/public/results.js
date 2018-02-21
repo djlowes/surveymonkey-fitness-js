@@ -51,13 +51,18 @@ $(document).ready(function() {
               var hThree = qFour[j][3].count;
             }
 
+      var bFour = bOne + bTwo + bThree;
+      var sFour = sOne + sTwo + sThree;
+      var cFour = cOne + cTwo + cThree;
+      var hFour = hOne + hTwo + hThree;
+
       var ctxOne = document.getElementById("one").getContext('2d');
         var chartOne = new Chart(ctxOne, {
           type: 'bar',
           data: {
             labels: ["Barry's Bootcamp", "Soul Cycle", "Basecamp Fitness", "HitFitSF"],
             datasets: [{
-              label: 'Best Atmosphere',
+              label: 'Click to see more data',
               backgroundColor: 'rgba(255,223,230,1)',
               borderColor: 'rgba(255,99,132,1)',
               borderWidth: 1,
@@ -66,33 +71,71 @@ $(document).ready(function() {
           }
         });
 
-        var ctxOne = document.getElementById("two").getContext('2d');
-          var chartOne = new Chart(ctxOne, {
-            type: 'bar',
+      var ctxThree = document.getElementById("two").getContext('2d');
+        var myChartThree = new Chart(ctxThree, {
+          type: 'doughnut',
+          data: {
+            labels: ["Barry's Bootcamp", "Soul Cycle", "Basecamp Fitness", "HitFitSF"],
+            datasets: [{
+              backgroundColor: [
+                "#2ecc71",
+                "#f1c40f",
+                "#95a5a6",
+                "#9b59b6"
+              ],
+              data: [bTwo, sTwo, cTwo, hTwo]
+            }]
+          }
+        });
+
+        var ctxTwo = document.getElementById("three").getContext('2d');
+          var chartTwo = new Chart(ctxTwo, {
+            type: 'horizontalBar',
             data: {
               labels: ["Barry's Bootcamp", "Soul Cycle", "Basecamp Fitness", "HitFitSF"],
               datasets: [{
-                label: 'Best Instructors',
-                backgroundColor: 'rgba(255,223,230,1)',
-                borderColor: 'rgba(255,99,132,1)',
+                label: 'Click to see more data',
+                backgroundColor: 'rgba(179, 220, 247, 1)',
+                borderColor: 'rgba(54, 160, 235, 1)',
                 borderWidth: 1,
-                data: [bTwo, sTwo, cTwo, hTwo],
+                data: [bThree, sThree, cThree, hThree],
               }]
             }
           });
 
-        var ctxOne = document.getElementById("three").getContext('2d');
-          var chartOne = new Chart(ctxOne, {
+        var ctxFour = document.getElementById("four").getContext("2d");
+          var data = {
+            labels: ["Barry's Bootcamp", "Soul Cycle", "Basecamp Fitness", "HitFitSF"],
+            datasets: [{
+              label: "Best Atmosphere",
+              backgroundColor: "yellow",
+              data: [bOne, sOne, cOne, hOne]
+            }, {
+              label: "Best Instructors",
+              backgroundColor: "orange",
+              data: [bTwo, sTwo, cTwo, hTwo]
+            }, {
+              label: "Hardest Workout",
+              backgroundColor: "purple",
+              data: [bThree, sThree, cThree, hThree]
+            },{
+              label: "Best Overall",
+              backgroundColor: "red",
+              data: [bFour, sFour, cFour, hFour]
+            }]
+          };
+          var myChartFour = new Chart(ctxFour, {
             type: 'bar',
-            data: {
-              labels: ["Barry's Bootcamp", "Soul Cycle", "Basecamp Fitness", "HitFitSF"],
-              datasets: [{
-                label: 'Hardest Workout',
-                backgroundColor: 'rgba(255,223,230,1)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 1,
-                data: [bThree, sThree, cThree, hThree],
-              }]
+            data: data,
+            options: {
+              barValueSpacing: 20,
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    min: 0,
+                  }
+                }]
+              }
             }
           });
 
