@@ -35,7 +35,7 @@ router.get("/", function(req, res) {
   });
 });
 
-router.get("/answers", function(req, res) {
+router.get("/survey", function(req, res) {
   try {
     var api = new SurveyMonkeyAPI(token.accessToken, {
       version: 'v3',
@@ -72,6 +72,7 @@ router.get("/responses", function(req, res) {
           var answe = answ[k].answers;
           for (let l = 0; l<answe.length; l++) {
             answers = answe[l]
+            console.log(answers);
           }
         }
       }

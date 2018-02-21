@@ -14,8 +14,6 @@ var bodyParser = require("body-parser");
 var session = require('express-session');
 var expressValidator = require('express-validator');
 
-// var cookieParser = require('cookie-parser');
-// var logger = require("morgan"); // for debugging
 // var LocalStrategy = require('passport-local').Strategy;
 
 //--------------------------------------
@@ -44,7 +42,7 @@ app.use('/api', apiRoutes);
 require('./app/routing/passport.js')(passport)
 
 //--------------------------------------
-// Middleware & Passport
+// Middleware
 //--------------------------------------
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/app/public'));
@@ -57,7 +55,10 @@ app.use(require('express-session')({
   resave: true,
   saveUninitialized: true
 }));
-// app.use(session({ secret: 'secret' }));
+
+//--------------------------------------
+// Passport
+//--------------------------------------
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

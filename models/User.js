@@ -10,13 +10,12 @@ const User = new Schema({
 
 // User.plugin(passportLocalMongoose);
 
-// methods ======================
-// generating a hash
+// Generate Hash
 User.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
-// checking if password is valid
+// Is Password Valid?
 User.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
