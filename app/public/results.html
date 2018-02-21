@@ -10,23 +10,24 @@
 	<link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
-	<div class="container">
-		<div id="spaceJam">
-		<div class="jumbotron">
-			<div class ="resultHeader">
-
-			</div>
-
+	<div id="results-page">
+			<div class="row">
+				<div class="col-sm-4"><canvas id="one"></canvas></div>
+				<div class="col-sm-4"><canvas id="two"></canvas></div>
+				<div class="col-sm-4"><canvas id="three"></canvas></div>
 		</div>
-
+	<div id="but">
+		<a href="/home"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-arrow-left"></span> Back </h4></button></a>
+		<a href="https://www.surveymonkey.com"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span> Go to SurveyMonkey </h4></button></a>
+	</div>
 	    <footer class="footer">
-	      <div class="container">
 		        <p><a href="/api">API</a> | <a href="https://github.com/">GitHub Repo</a></p>
-	      </div>
 	    </footer>
 	</div>
 	</div>
 
 <script src="./results.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>
