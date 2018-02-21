@@ -68,6 +68,15 @@ $(document).ready(function() {
               borderWidth: 1,
               data: [bOne, sOne, cOne, hOne],
             }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
           }
         });
 
@@ -100,6 +109,15 @@ $(document).ready(function() {
                 borderWidth: 1,
                 data: [bThree, sThree, cThree, hThree],
               }]
+            },
+            options: {
+              scales: {
+                xAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
             }
           });
 
@@ -108,19 +126,23 @@ $(document).ready(function() {
             labels: ["Barry's Bootcamp", "Soul Cycle", "Basecamp Fitness", "HitFitSF"],
             datasets: [{
               label: "Best Atmosphere",
-              backgroundColor: "yellow",
+              borderColor: "rgba(1, 175, 178, 1)",
+              backgroundColor: 'rgba(93, 193, 178, 1)',
               data: [bOne, sOne, cOne, hOne]
             }, {
               label: "Best Instructors",
-              backgroundColor: "orange",
+              borderColor: "rgba(230, 230, 0, 1)",
+              backgroundColor: 'rgba(255, 255, 153, 1)',
               data: [bTwo, sTwo, cTwo, hTwo]
             }, {
               label: "Hardest Workout",
-              backgroundColor: "purple",
+              borderColor: "rgba(141, 134, 124, 1)",
+              backgroundColor: 'rgba(141, 134, 146, 1)',
               data: [bThree, sThree, cThree, hThree]
             },{
               label: "Best Overall",
-              backgroundColor: "red",
+              borderColor: "rgba(241, 170, 34, 1)",
+              backgroundColor: 'rgba(241, 170, 115, 1)',
               data: [bFour, sFour, cFour, hFour]
             }]
           };
@@ -132,7 +154,7 @@ $(document).ready(function() {
               scales: {
                 yAxes: [{
                   ticks: {
-                    min: 0,
+                    beginAtZero: true,
                   }
                 }]
               }
