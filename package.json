@@ -1,27 +1,29 @@
 {
-  "name": "nbaplayer-me",
+  "name": "fitness-app",
   "version": "1.0.0",
   "description": "Compatibility-based application that matches users with current NBA players based on personality attributes.",
   "main": "server.js",
+  "engines": {
+    "node": "9.5.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/djlowes/nbaplayer-me.git"
+    "url": "git+https://github.com/djlowes/surveymonkey-fitness-js"
   },
   "keywords": [
-    "personality",
-    "match",
-    "nba",
-    "player"
+    "surveymonkey",
+    "survey"
   ],
   "author": "David Lowes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/djlowes/nbaplayer-me/issues"
+    "url": "https://github.com/djlowes/surveymonkey-fitness-js/issues"
   },
-  "homepage": "https://github.com/djlowes/nbaplayer-me#readme",
+  "homepage": "https://github.com/djlowes/surveymonkey-fitness-js#readme",
   "dependencies": {
     "axios": "^0.17.1",
     "bcrypt-nodejs": "0.0.3",
